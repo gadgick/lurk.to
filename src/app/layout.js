@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
       <head>
         <Script
           src="https://cdn.seline.so/seline.js"
-          data-token="78f00599666f1f5N"
+          data-token="78f00599666f1f5"
           strategy="afterInteractive"
         />
       </head>
