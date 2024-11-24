@@ -1,19 +1,77 @@
+'use client';
 import Image from "next/image";
-import Link from 'next/link'
+import Link from 'next/link';
+import { useState } from 'react';
 
 export default function Home() {
+  const [email, setEmail] = useState('');
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    try {
+      const response = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (response.ok) {
+        setFormSubmitted(true);
+        setEmail(''); // Clear the form
+        setErrorMessage(null);
+      } else {
+        const errorData = await response.json();
+        setErrorMessage(errorData.message || 'An error occurred.');
+      }
+    } catch (error) {
+      setErrorMessage('Network error or server not responding.');
+    }
+  };
+
+
   return (
     <div className="bg-gray-50">
       <div className="relative isolate px-6 pt-14 lg:px-8">
         <div className="mx-auto max-w-3xl py-32 sm:py-48 lg:py-40">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
+            <div className="relative bg-gray-800 rounded-full px-5 py-2 text-sm text-gray-50 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+            Currently in development
+          </div>
           </div>
           <div className="text-center">
             <h1 className="text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl">Monitoring websites in the shadows</h1>
             <p className="mt-6 text-pretty text-lg font-normal text-zinc-700 sm:text-xl/8 max-w-2xl mx-auto">Enjoy a monitoring service that silently watches over your websites and APIs for any anomalies or downtime.</p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
-              <a href="#" className="rounded-3xl bg-zinc-800 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-zinc-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Join the waitlist</a>
-              <a href="#" className="text-sm/6 font-semibold text-gray-900">Learn more <span aria-hidden="true">→</span></a>
+            {formSubmitted ? (
+                <div className="rounded-md bg-green-50 p-4 drop-shadow-sm">
+                  <div className="flex">
+                    <div className="ml-3">
+                      <h3 className="text-sm font-medium text-green-800">Thanks, watch your inbox for an invite.</h3>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit}>
+                  <label htmlFor="email" className="sr-only">Email</label>
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="my@email.com"
+                    name="email"
+                    id="email"
+                    className="w-80 inline rounded-tl-3xl rounded-bl-3xl border-0 px-5 py-2.5 text-sm text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-zinc-900 sm:text-sm/6"
+                    required
+                  />
+                  <button type="submit" className="rounded-tr-3xl rounded-br-3xl bg-zinc-900 px-3.5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-zinc-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">Join waitlist</button>
+                  {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+                </form>
+              )}
             </div>
           </div>
         </div>
@@ -124,7 +182,14 @@ export default function Home() {
         <div className="sm:px-6 lg:px-0">
         <div className="relative isolate overflow-hidden px-6 pt-8 sm:mx-auto sm:max-w-2xl sm:rounded-3xl sm:pl-16 sm:pr-0 sm:pt-16 lg:mx-0 lg:max-w-none bg-gradient-to-br from-zinc-100 to-zinc-200 border border-zinc-200">
             <div className="mx-auto max-w-2xl sm:mx-0 sm:max-w-none">
-              <img src="https://tailwindui.com/plus/img/component-images/project-app-screenshot.png" alt="Product screenshot" width="2432" height="1442" className="-mb-12 w-[57rem] max-w-none rounded-tl-xl" />
+            <Image
+                src="/monitors.png"
+                alt="Monitor example"
+                height={2432}
+                width={1442}
+                priority
+                className="-mb-12 w-[57rem] max-w-none rounded-tl-xl"
+              />
             </div>
           </div>
         </div>
