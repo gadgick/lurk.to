@@ -50,7 +50,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={inter.className}>
       <header>
-        <nav className="fixed left-1/2 transform -translate-x-1/2 w-full my-5 max-w-3xl z-50 bg-white border rounded-full">
+        <nav className="fixed left-1/2 transform -translate-x-1/2 w-full my-5 max-w-80 z-50 bg-white border rounded-full md:max-w-3xl">
           <div className="container mx-auto px-4 py-2 flex justify-between items-center">
               <Link href="/"><Image
                 src="/logo.png"

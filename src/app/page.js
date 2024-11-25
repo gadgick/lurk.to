@@ -65,10 +65,10 @@ export default function Home() {
                     placeholder="my@email.com"
                     name="email"
                     id="email"
-                    className="w-80 inline rounded-tl-3xl rounded-bl-3xl border-0 px-5 py-2.5 text-sm text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-zinc-900 sm:text-sm/6"
+                    className="w-52 inline rounded-tl-3xl rounded-bl-3xl border-0 px-5 py-2.5 text-sm text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-zinc-900 sm:text-sm/6 md:w-80"
                     required
                   />
-                  <button type="submit" className="rounded-tr-3xl rounded-br-3xl bg-zinc-900 px-3.5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-zinc-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">Join waitlist</button>
+                  <button type="submit" className="rounded-tr-3xl rounded-br-3xl bg-zinc-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-zinc-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 md:py-3">Join waitlist</button>
                   {errorMessage && <p className="text-red-500">{errorMessage}</p>}
                 </form>
               )}
