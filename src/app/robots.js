@@ -4,6 +4,6 @@ export default function robots() {
         userAgent: '*',
         allow: '/',
       },
-      sitemap: 'https://lurk.to/sitemap.xml',
+      sitemap: 'https://www.lurk.to/sitemap.xml',
     }
   }

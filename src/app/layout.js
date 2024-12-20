@@ -48,7 +48,7 @@ export default function RootLayout({ children }) {
           strategy="afterInteractive"
         />
       </head>
-      <body className={inter.className}>
+      <body className={`${inter.className} bg-gray-50`}>
       <header>
       <nav className="fixed left-1/2 transform -translate-x-1/2 w-full my-5 max-w-80 z-50 bg-white border rounded-full md:max-w-3xl">
         <div className="container mx-auto px-4 py-2 flex justify-between items-center">
@@ -63,9 +63,9 @@ export default function RootLayout({ children }) {
               />
             </Link>
           </div>
-          <div className="flex items-center space-x-4">
+          <div className="items-center space-x-4 hidden md:flex">
             <Link href="/pricing" className="px-4 py-2 text-sm text-gray-800 font-medium rounded-full hover:bg-gray-50 transition duration-300">Pricing</Link>
-            {/* Add more links here, e.g., <Link href="/docs">Docs</Link> */}
+            <Link href="/changelog" className="px-4 py-2 text-sm text-gray-800 font-medium rounded-full hover:bg-gray-50 transition duration-300">Changelog</Link>
           </div>
           <div className="flex items-center">
             <Link href="https://app.lurk.to/" className="px-4 py-2 bg-gray-900 text-sm font-medium text-white rounded-full hover:bg-gray-700 transition duration-300">
@@ -76,17 +76,8 @@ export default function RootLayout({ children }) {
       </nav>
       </header>
         {children}
-        <footer>
+        <footer className="bg-gray-50">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl text-center">
-              <hgroup>
-                <h2 className="mt-2 text-balance text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">With Lurk, you won't miss a beat.</h2>
-              </hgroup>
-              <p className="mx-auto mt-6 max-w-xl text-pretty text-xl/8 text-gray-500">Get started today and always be prepared for anything the web throws at you.</p>
-              <div className="mt-8 flex justify-center">
-                <Link href="https://app.lurk.to/signup" className="px-6 py-3 bg-gray-900 text-base font-medium text-white rounded-full hover:bg-gray-700 transition duration-300">Start monitoring</Link>
-              </div>
-            </div>
             <div className="mt-24 border-t border-gray-900/10 pt-12 xl:grid xl:grid-cols-3 xl:gap-8">
             <Image
                       src="/icon.png"
@@ -107,6 +98,7 @@ export default function RootLayout({ children }) {
                 <h3 className="text-sm/6 font-semibold text-gray-950">Support</h3>
                 <ul role="list" className="mt-6 space-y-4">
                   <li><Link href="#" className="text-sm/6 text-gray-600 hover:text-gray-900">Contact</Link></li>
+                  <li><Link href="/changelog" className="text-sm/6 text-gray-600 hover:text-gray-900">Changelog</Link></li>
                 </ul>
               </div>
               <div>

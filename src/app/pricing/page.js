@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default function Page() {
   return (
-<div className="relative isolate px-6 py-24 sm:py-32 lg:px-8">
+<div className="relative isolate px-6 py-24 sm:py-32 lg:px-8 bg-gray-50">
   <div className="mx-auto max-w-4xl text-center">
     <h2 className="mt-14 text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Pricing</h2>
   </div>

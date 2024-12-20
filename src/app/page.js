@@ -6,7 +6,7 @@ import { useState } from 'react';
 export default function Home() {
 
   return (
-    <div className="bg-gray-50">
+    <div>
       <div className="relative isolate pt-14">
         <div className="py-24 sm:py-32 lg:pb-40">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -35,51 +35,51 @@ export default function Home() {
         </div>
       </div>
       <div id="features" className="mx-auto max-w-7xl px-6 lg:px-8">
-  <div className="mx-auto max-w-4xl sm:text-center">
-    <h2 className="mb-2 text-pretty text-lg font-medium tracking-loose text-gray-600 sm:text-balance sm:text-xl">Monitoring</h2>
-    <p className="mt-3 mb-12 text-3xl font-medium text-gray-950 text-pretty tracking-tight">Keeping your websites and APIs in check, 24/7.</p>
-    <div className="mx-auto space-y-4">
-      <div className="bg-white ring-1 ring-gray-200 p-8 rounded-lg shadow">
-        <Image
-          src="/graphs.png"
-          alt="Latency trending graphs"
-          height={60}
-          width={1442}
-          priority
-          className="w-full mb-12"
-        />
-        <h2 className="text-xl font-semibold mb-2 text-gray-800">Latency Trends</h2>
-        <p className="text-gray-600">Track response times worldwide to catch regional slowdowns instantly.</p>
-      </div>
-      <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-        <div className="w-full sm:w-1/2 bg-white ring-1 ring-gray-200 pb-8 rounded-lg shadow">
-          <Image
-            src="/mon_codes.png"
-            alt="Detecting error codes"
-            height={100}
-            width={500}
-            priority
-            className="w-full mb-4"
-          />
-          <h2 className="text-xl font-semibold mb-2 text-gray-800">Detecting Errors</h2>
-          <p className="text-gray-600">Monitor endpoint status codes to spot any non-200 responses.</p>
+        <div className="mx-auto max-w-4xl sm:text-center">
+          <h2 className="mb-2 text-pretty text-lg font-medium tracking-loose text-gray-600 sm:text-balance sm:text-xl">Monitoring</h2>
+          <p className="mt-3 mb-12 text-3xl font-medium text-gray-950 text-pretty tracking-tight">Keeping your websites and APIs in check, 24/7.</p>
+          <div className="mx-auto space-y-4">
+            <div className="bg-white ring-1 ring-gray-200 p-8 rounded-lg shadow">
+              <Image
+                src="/graphs.png"
+                alt="Latency trending graphs"
+                height={60}
+                width={1442}
+                priority
+                className="w-full mb-12"
+              />
+              <h2 className="text-xl font-semibold mb-2 text-gray-800">Latency Trends</h2>
+              <p className="text-gray-600 w-full md:mx-auto md:w-1/2">Track response times worldwide to catch regional slowdowns instantly.</p>
+            </div>
+            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+              <div className="w-full px-8 md:px-0 sm:w-1/2 bg-white ring-1 ring-gray-200 pb-8 rounded-lg shadow">
+                <Image
+                  src="/mon_codes.png"
+                  alt="Detecting error codes"
+                  height={100}
+                  width={500}
+                  priority
+                  className="w-full mb-4"
+                />
+                <h2 className="text-xl font-semibold mb-2 text-gray-800">Detecting Errors</h2>
+                <p className="text-gray-600 w-full md:mx-auto md:w-3/4">Monitor endpoint status codes to spot any non-200 responses.</p>
+              </div>
+              <div className="w-full px-8 md:px-0 sm:w-1/2 bg-white ring-1 ring-gray-200 pb-8 rounded-lg shadow">
+                <Image
+                  src="/mon_regions.png"
+                  alt="Multiple locations"
+                  height={100}
+                  width={500}
+                  priority
+                  className="w-full mb-4"
+                />
+                <h2 className="text-xl font-semibold mb-2 text-gray-800">Multi-Location Checks</h2>
+                <p className="text-gray-600 w-full md:mx-auto md:w-3/4">Monitoring from two regions for coverage. More coming soon.</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="w-full sm:w-1/2 bg-white ring-1 ring-gray-200 pb-8 rounded-lg shadow">
-          <Image
-            src="/mon_regions.png"
-            alt="Multiple locations"
-            height={100}
-            width={500}
-            priority
-            className="w-full mb-4"
-          />
-          <h2 className="text-xl font-semibold mb-2 text-gray-800">Multi-Location Checks</h2>
-          <p className="text-gray-600">Monitoring from two regions for coverage. More coming soon.</p>
-        </div>
       </div>
-    </div>
-  </div>
-</div>
       <div id="alerting" className="mx-auto max-w-7xl mt-32 mb-32 px-6 lg:px-8">
         <div className="mx-auto max-w-4xl sm:text-center">
           <h2 className="mb-2 text-pretty text-lg font-medium tracking-loose text-gray-600 sm:text-balance sm:text-xl">Alerting</h2>
@@ -122,6 +122,15 @@ export default function Home() {
               <p className="text-gray-600">We'll call you when a monitor goes down.</p>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="mx-auto max-w-2xl text-center">
+        <hgroup>
+          <h2 className="mt-2 text-balance text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">With Lurk, you won't miss a beat.</h2>
+        </hgroup>
+        <p className="mx-auto mt-6 max-w-xl text-pretty text-xl/8 text-gray-500">Get started today and always be prepared for anything the web throws at you.</p>
+        <div className="mt-8 flex justify-center">
+          <Link href="https://app.lurk.to/signup" className="px-6 py-3 bg-gray-900 text-base font-medium text-white rounded-full hover:bg-gray-700 transition duration-300">Start monitoring</Link>
         </div>
       </div>
   </div>
